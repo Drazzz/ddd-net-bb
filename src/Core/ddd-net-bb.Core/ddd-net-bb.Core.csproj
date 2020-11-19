@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ddd-net-bb.Core.Abstractions\ddd-net-bb.Core.Abstractions.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>ddd_net_bb.Core</RootNamespace>
+  </PropertyGroup>
+
+</Project>

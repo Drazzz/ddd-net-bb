@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ddd-net-bb.Domain.Abstractions\ddd-net-bb.Domain.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Core\ddd-net-bb.Core.Abstractions\ddd-net-bb.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Core\ddd-net-bb.Core\ddd-net-bb.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ReflectionMagic" Version="4.1.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>ddd_net_bb.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+</Project>
