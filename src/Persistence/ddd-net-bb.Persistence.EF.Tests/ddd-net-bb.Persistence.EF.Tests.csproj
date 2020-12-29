@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>ddd_net_bb.Domain.Tests</RootNamespace>
+    <RootNamespace>ddd_net_bb.Persistence.EF.Tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -17,8 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ddd-net-bb.Domain\ddd-net-bb.Domain.csproj" />
-    <ProjectReference Include="..\ddd-net-bb.Domain.Abstractions\ddd-net-bb.Domain.Abstractions.csproj" />
+    <ProjectReference Include="..\ddd-net-bb.Persistence.EF\ddd-net-bb.Persistence.EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Stubs\" />
   </ItemGroup>
 
 </Project>
