@@ -84,6 +84,21 @@ namespace DDDNETBB.Persistence.MongoDB.Extensions
             return services;
         }
 
+        public static IServiceCollection AddMongoDbWriteRepository<TAggregateRoot, TKey>(
+            this IServiceCollection services,
+            string collectionName)
+            where TAggregateRoot : EventedAggregateRoot<TKey>
+            where TKey : Identity
+        {
+            services.AddTransient<IMongoDbWriteRepository<TAggregateRoot, TKey>>(sp =>
+            {
+                var database = sp.GetService<IMongoDatabase>();
+                return new MongoDbWriteRepository<TAggregateRoot, TKey>(database, collectionName);
+            });
+
+            return services;
+        }
+
 
         private static void ApplySeeder(IServiceCollection services, Type seederType)
         {

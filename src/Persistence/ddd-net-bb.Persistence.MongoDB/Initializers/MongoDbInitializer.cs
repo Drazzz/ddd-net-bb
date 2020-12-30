@@ -16,11 +16,11 @@ namespace DDDNETBB.Persistence.MongoDB.Initializers
         private readonly IMongoDbSeeder _seeder;
 
 
-        public MongoDbInitializer(bool requiredSeed, IMongoDatabase mongoDatabase, IMongoDbSeeder seeder)
+        public MongoDbInitializer(IMongoDatabase mongoDatabase, IMongoDbSeeder seeder, Options options)
         {
             _mongoDatabase = mongoDatabase ?? throw new ArgumentNullException(nameof(mongoDatabase));
             _seeder = seeder ?? throw new ArgumentNullException(nameof(seeder));
-            _requiredSeed = requiredSeed;
+            _requiredSeed = options.Seed;
         }
 
 
