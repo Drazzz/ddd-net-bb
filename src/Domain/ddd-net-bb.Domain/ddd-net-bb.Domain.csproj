@@ -15,6 +15,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>ddd_net_bb.Domain</RootNamespace>
+    <Authors>Drazzz</Authors>
+    <LangVersion>Latest</LangVersion>
+    <Title>ddd-net-bb.Domain</Title>
+    <Description>ddd-net-bb.Domain</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

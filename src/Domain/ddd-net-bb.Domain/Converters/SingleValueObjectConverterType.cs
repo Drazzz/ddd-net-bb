@@ -1,3 +1,4 @@
+using DDDNETBB.Core;
 using Newtonsoft.Json;
 using DDDNETBB.Domain.Abstractions;
 

@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.VisualBasic.CompilerServices;
 
-namespace DDDNETBB.Domain
+namespace DDDNETBB.Core
 {
     public abstract class Enumeration: IComparable
     {
-        public int Id {get; private set;}
-        public string Name{get; private set;}
+        public int Id {get; }
+        public string Name{get; }
 
 
         protected Enumeration(int id, string name)
@@ -50,14 +51,17 @@ namespace DDDNETBB.Domain
 
         public override bool Equals(object obj)
         {
-            var otherValue = obj as Enumeration;
-            if (otherValue is null)
+            if (!(obj is Enumeration otherValue))
                 return false;
 
-            var typeMatches = GetType().Equals(obj.GetType());
+            var typeMatches = GetType() == obj.GetType();
             var valueMatches = Id.Equals(otherValue.Id);
 
             return typeMatches && valueMatches;
-        }        
+        }
+
+        public static bool operator ==(Enumeration enum1, Enumeration enum2) => enum1?.Equals(enum2) ?? ReferenceEquals(enum2, null);
+
+        public static bool operator !=(Enumeration enum1, Enumeration enum2) => !(enum1 == enum2);
     }
 }
