@@ -18,7 +18,7 @@ namespace DDDNETBB.Domain.Tests.Fakes
             IsFake = isFake;
         }
         public static FakeEventedAggregateRoot Default()
-            => new FakeEventedAggregateRoot(new FakeEntityId(Guid.NewGuid()), "test name", 111, true);
+            => new(new FakeEntityId(Guid.NewGuid()), "test name", 111, true);
 
         public void ChangePersonalData(string name, int age)
         {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\ddd-net-bb.Domain.Abstractions\ddd-net-bb.Domain.Abstractions.csproj" />
@@ -15,10 +15,14 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>ddd_net_bb.Domain</RootNamespace>
+    <Authors>Drazzz</Authors>
+    <LangVersion>Latest</LangVersion>
+    <Title>ddd-net-bb.Domain</Title>
+    <Description>ddd-net-bb.Domain</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
 </Project>

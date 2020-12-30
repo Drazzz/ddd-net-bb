@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>ddd_net_bb.Persistence.MongoDB</RootNamespace>
+    <Authors>Drazzz</Authors>
+    <LangVersion>Latest</LangVersion>
+    <Title>ddd-net-bb.Persistence.MongoDB</Title>
+    <Description>ddd-net-bb.Persistence.MongoDB</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\ddd-net-bb.Core\ddd-net-bb.Core.csproj" />
+    <ProjectReference Include="..\..\Domain\ddd-net-bb.Domain\ddd-net-bb.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Factories\" />
+  </ItemGroup>
+
+</Project>
