@@ -35,10 +35,20 @@ namespace DDDNETBB.Persistence.MongoDB.Extensions
             return services.AddMongoDb(options, seederType, registerConventions);
         }
 
-        public static IServiceCollection AddMongoDb(this IServiceCollection services, Func<IMongoDbOptionsBuilder,
-            IMongoDbOptionsBuilder> buildOptions, Type seederType = null, bool registerConventions = true)
+        public static IServiceCollection AddMongoDb(this IServiceCollection services,
+            Func<IMongoDbOptionsBuilder, IMongoDbOptionsBuilder> buildOptions,
+            string optionsSectionName = null,
+            Type seederType = null,
+            bool registerConventions = true)
         {
-            var mongoOptions = buildOptions(MongoDbOptionsBuilder.New()).Build();
+            if (services is null)
+                throw new ArgumentNullException(nameof(services));
+
+            var optionsBuilder = optionsSectionName.IsNullEmptyOrWhitespace()
+                ? MongoDbOptionsBuilder.New()
+                : MongoDbOptionsBuilder.From(services.GetOptions<Options>(optionsSectionName));
+            var mongoOptions = buildOptions(optionsBuilder).Build();
+
             return services.AddMongoDb(mongoOptions, seederType, registerConventions);
         }
 
