@@ -1,6 +1,7 @@
 ﻿using System;
 using DDDNETBB.Core;
 using DDDNETBB.Domain;
+using DDDNETBB.Persistence.MongoDB.Builders;
 using DDDNETBB.Persistence.MongoDB.Factories;
 using DDDNETBB.Persistence.MongoDB.Initializers;
 using DDDNETBB.Persistence.MongoDB.Repositories;
@@ -32,6 +33,13 @@ namespace DDDNETBB.Persistence.MongoDB.Extensions
 
             var options = services.GetOptions<Options>(optionsSectionName);
             return services.AddMongoDb(options, seederType, registerConventions);
+        }
+
+        public static IServiceCollection AddMongoDb(this IServiceCollection services, Func<IMongoDbOptionsBuilder,
+            IMongoDbOptionsBuilder> buildOptions, Type seederType = null, bool registerConventions = true)
+        {
+            var mongoOptions = buildOptions(MongoDbOptionsBuilder.New()).Build();
+            return services.AddMongoDb(mongoOptions, seederType, registerConventions);
         }
 
         public static IServiceCollection AddMongoDb(this IServiceCollection services,
